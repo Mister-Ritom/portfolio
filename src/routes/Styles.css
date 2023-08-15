@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400&family=Poppins:wght@500&display=swap');
+:root {
+    --text: white;
+    --background: #b92b27; /* fallback for old browsers */
+    --background: -webkit-linear-gradient(to right, #b92b27, #1565c0); /* Chrome 10-25, Safari 5.1-6 */
+    --background: linear-gradient(to right, #b92b27, #1565c0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    --primary: #6aeb37;
+    --secondary: #b9e6f3;
+    --accent: #f189e4;
+    --nav-bg:rgb(27, 88, 156);
+    --nav-border:#061a1e;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background: var(--background);
+    margin: 0;
+    padding: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+img {
+    user-select: none;
+}
+
+
+h2 {
+    font-family: 'Oswald', sans-serif;
+}
+
+h1 {
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1.3px;
+    word-spacing: 1.5px;
+}
+
+a {
+    text-decoration: none;
+    color:gold;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+p {
+    font-size: medium;
+    font-family: 'Poppins', sans-serif;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
