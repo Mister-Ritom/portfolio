@@ -1,17 +1,20 @@
 <script>
+    import Bolt from "$lib/Icons/Bolt.png"
+    import Home from "$lib/Icons/Home.png"
+    import Person from "$lib/Icons/Person.png"
 </script>
 
 <nav>
     <a href="/" class="nav-link">
-        <span class="material-symbols-outlined">home</span>
+        <img class="icon" width="24px" height="24px" src={Home} alt="Home navbar icon">
         <span class="nav-text">Home</span>
     </a>
     <a href="/projects" class="nav-link">
-        <span class="material-symbols-outlined">bolt</span>
+        <img class="icon" width="24px" height="24px" src={Bolt} alt="Bolt navbar icon">
         <span class="nav-text">Projects</span>
     </a>
     <a href="/profile" class="nav-link">
-        <span class="material-symbols-outlined">person</span>
+        <img class="icon" width="24px" height="24px" src={Person} alt="Person navbar icon">
         <span class="nav-text">Socials</span>
     </a>
 </nav>
@@ -55,8 +58,9 @@
         transform: translate(0,-3px);
         border-color: var(--nav-bg);
     }
-    a:hover .material-symbols-outlined {
-        color: var(--accent);
+    a:hover .icon {
+        filter: invert(98%) sepia(55%) saturate(1754%) hue-rotate(68deg) brightness(97%) contrast(83%); 
+        /* the above filter is for accent color */
     }
     a:hover .nav-text {
         color: var(--primary);
@@ -64,6 +68,12 @@
     a span {
         margin-left: 2px;
         margin-right: 2px;
+    }
+
+    .icon {
+        margin-top: auto;
+        margin-bottom: auto;
+        filter: invert(100%) sepia(0%) saturate(7497%) hue-rotate(66deg) brightness(97%) contrast(101%);
     }
 
     @media (max-width:720px) {
@@ -81,7 +91,7 @@
             border-left: none;
             border-right: none;
         }
-        .material-symbols-outlined {
+        .icon {
             display: none;
             width: 0;
             height: 0;

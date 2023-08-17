@@ -6,7 +6,7 @@
     --background: linear-gradient(to right, #b92b27, #1565c0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     --primary: #6aeb37;
     --secondary: #b9e6f3;
-    --accent: #f189e4;
+    --accent: rgb(98, 233, 143);
     --nav-bg:rgb(27, 88, 156);
     --nav-border:#061a1e;
 }
