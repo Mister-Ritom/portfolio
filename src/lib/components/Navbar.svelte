@@ -13,7 +13,7 @@
         <img class="icon" width="24px" height="24px" src={Bolt} alt="Bolt navbar icon">
         <span class="nav-text">Projects</span>
     </a>
-    <a href="/profile" class="nav-link">
+    <a href="/socials" class="nav-link">
         <img class="icon" width="24px" height="24px" src={Person} alt="Person navbar icon">
         <span class="nav-text">Socials</span>
     </a>
