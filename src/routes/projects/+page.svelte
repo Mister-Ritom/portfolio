@@ -63,8 +63,8 @@
     .languages h3 {
         margin: 0 0 0 0.5rem;
         padding: 8px;
-        background-color: rgba(0, 0, 0,.5);
-        border: 1px solid rgb(255, 255, 255);
+        background-color: var(--primary);
+        border: 1px solid var(--nav-border);
         box-shadow: 2px 2px 2px 1px rgba(255,255,255, 0.2);
         color: var(--text);
         -webkit-backdrop-filter: blur(5px);

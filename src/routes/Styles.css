@@ -1,14 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400&family=Poppins:wght@500&display=swap');
 :root {
     --text: white;
-    --background: #b92b27; /* fallback for old browsers */
-    --background: -webkit-linear-gradient(to right, #b92b27, #1565c0); /* Chrome 10-25, Safari 5.1-6 */
-    --background: linear-gradient(to right, #b92b27, #1565c0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    --primary: #6aeb37;
+    --background: #121212;
+    --primary: #332940;
     --secondary: #b9e6f3;
     --accent: rgb(98, 233, 143);
-    --nav-bg:rgb(27, 88, 156);
-    --nav-border:#061a1e;
+    --nav-bg:#1F1B24;
+    --nav-border:#14434b;
 }
 
 body {

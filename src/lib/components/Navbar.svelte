@@ -24,17 +24,18 @@
         display: flex;
         margin-left: auto;
         margin-right: 1rem;
-        margin-top: 2px;
         margin-bottom: 6px;
         width: max-content;
         height: fit-content;
-        border-width: 0.5px;
+        border-width: 1px;
         border-style: solid;
-        border-color: var(--nav-bd);
+        border-color: var(--nav-border);
         background: var(--nav-bg);
         padding: 8px;
         border-radius: 16px;
         gap: 0.5rem;
+        border-top-right-radius: 2px;
+        border-top-left-radius: 2px;
     }
     nav:hover {
         background: var(--background);
