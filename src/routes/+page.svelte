@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import Bgshape from '$lib/images/bgshape.svelte';
   import myPhoto from '$lib/images/myphoto.png';
+  import Courses from '$lib/components/courses.svelte';
 
   let hero: HTMLElement;
 
@@ -63,9 +64,34 @@
     <div class="block">
       <h3>Certifications</h3>
       <ul>
-        <li>Google Crash Course on Python – Coursera</li>
-        <li>Responsive Web Design – freeCodeCamp</li>
-        <li>Firebase Essentials – Udemy</li>
+        <li>
+          <Courses
+          courseName="Responsive Web Design"
+          courseDescription="freeCodeCamp"
+          courseLink="https://www.freecodecamp.org/learn/2022/responsive-web-design/"
+          />
+        </li>
+        <li>
+          <Courses
+          courseName="Microsoft Python Development Fundamentals"
+          courseDescription="Coursera"
+          courseLink="https://www.coursera.org/professional-certificates/microsoft-python-developer/"
+          />
+        </li>
+        <li>
+          <Courses
+          courseName="Firebase Essentials"
+          courseDescription="Udemy"
+          courseLink="https://www.udemy.com/course/firebase-fundamentals/"
+          />
+        </li>
+        <li>
+          <Courses
+          courseName="Flutter & Dart - The Complete Guide"
+          courseDescription="Udemy"
+          courseLink="https://www.udemy.com/course/flutter-latest-course/"
+          />
+        </li>
       </ul>
     </div>
 
@@ -127,7 +153,7 @@
   .shape {
     position: absolute;
     top: 10%;
-    left: 20%;
+    left: 20%; 
     width: inherit;
     height: inherit;
     z-index: 2;
@@ -171,7 +197,8 @@
 
 .block h3 {
   font-size: 1.3rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 3rem;
+  color: var(--secondary)
 }
 
 .block ul {

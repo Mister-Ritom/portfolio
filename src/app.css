@@ -1,0 +1,20 @@
+body {
+    margin: 0 16px;
+    --primary: #a185ff;
+    --secondary: #a9a9fb;
+    --accent: #4a90e2;
+    --bg: #121212;
+    background-color: var(--bg);
+    color: white;
+}
+a {
+    color: var(--primary);
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+h1 {
+    font-size: 2.5rem;
+    margin: 0;
+}

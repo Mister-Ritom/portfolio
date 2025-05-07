@@ -4,7 +4,7 @@
       <a href="/">RitomG</a>
     </div>
     <div class="navbar-links">
-      <a href="/about">About</a>
+      <a href="/blogs">Blog</a>
       <a href="/projects">Projects</a>
       <a href="/contact">Contact</a>
     </div>
