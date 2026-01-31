@@ -6,5 +6,8 @@ export default defineConfig({
     host: true,
     allowedHosts: true,
   },
-	plugins: [sveltekit()]
+	plugins: [sveltekit()],
+	ssr: {
+		noExternal: ['gsap']
+	}
 });

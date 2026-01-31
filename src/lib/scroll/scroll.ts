@@ -2,12 +2,17 @@ import Lenis from 'lenis';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger);
+// registerPlugin will be called on the client side
+// gsap.registerPlugin(ScrollTrigger);
+
 
 let lenis: Lenis | null = null;
 
 export function initSmoothScroll() {
 	if (typeof window === 'undefined') return;
+
+	gsap.registerPlugin(ScrollTrigger);
+
 
 	lenis = new Lenis({
 		duration: 1.2,

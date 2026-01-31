@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { useTask } from '@threlte/core';
-	import { gsap, ScrollTrigger } from '$lib/scroll/scroll';
+	import { gsap } from '$lib/scroll/scroll';
 	import { onMount, onDestroy } from 'svelte';
 	import type { Group, PerspectiveCamera } from 'three';
 	import * as THREE from 'three';
