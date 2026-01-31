@@ -2,7 +2,7 @@
 
 An immersive, 3D-driven developer portfolio built with **SvelteKit 5**, **Threlte (Three.js)**, and **GSAP**.
 
-![Portfolio Preview](static/favicon.png) <!-- Replace with a real screenshot if available -->
+![Portfolio Preview](static/logo.jpeg) <!-- Replace with a real screenshot if available -->
 
 ## 🚀 Overview
 
