@@ -22,7 +22,7 @@
 		<!-- Logo -->
 		<a href="/" class="flex items-center gap-2 group" aria-label="Home">
 			<img
-				src="/assets/logo.jpeg"
+				src="/assets/logo.png"
 				alt="Ritom Ghosh"
 				class="h-9 w-9 rounded-full object-cover ring-2 ring-white/30 group-hover:ring-white/60 transition-all duration-300"
 			/>

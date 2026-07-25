@@ -1,6 +1,7 @@
 # Content Backup — Ritom Ghosh Portfolio
 
 ## Identity
+
 - **Name:** Ritom Ghosh
 - **Age:** 18
 - **Location:** Bardhaman 713422, West Bengal, India
@@ -11,23 +12,29 @@
 - **Instagram:** https://www.instagram.com/ritomg1/
 
 ## Summary
+
 Innovative software developer with several years of hands-on experience designing and testing applications. Well-versed in agile methodologies and coding languages. Dedicated to developing creative solutions to meet business goals and requirements. Coding since age 14.
 
 ## Skills
+
 ### Mobile & App
+
 - Mobile development, Flutter, React Native
 - Object-oriented programming, Feature development
 
 ### Backend & Integration
+
 - Full-stack development, API integration & SQL integration
 - Front-end technologies and REST services, Code debugging and review
 
 ### Engineering
+
 - Application architecture, Agile methodologies
 - Git workflow management, Version control
 - Problem solving and time management, User experience design
 
 ## Projects (22 total, from GitHub API)
+
 1. Indie — TS/React — Pinterest-clone, masonry grid — https://indie-green.vercel.app | https://github.com/Mister-Ritom/indie
 2. zdotcom — TypeScript — Social platform — https://zdotcom.vercel.app | https://github.com/Mister-Ritom/zdotcom
 3. sorto — Dart — Sort visualizer — https://sorto.vercel.app | https://github.com/Mister-Ritom/sorto
@@ -52,17 +59,21 @@ Innovative software developer with several years of hands-on experience designin
 22. Java Minecraft — Java, OpenGL — Voxel engine sandbox | https://github.com/Mister-Ritom/java-minecraft
 
 ## Contact Form Fields
+
 - Name (text, required)
 - Email (email, required)
 - Message (textarea, required)
 - Backend: Resend API → ritomghosh856@gmail.com
 
 ## Nav Links (old)
+
 Home, Showcase, Contact, Links
 
 ## Nav Links (new)
+
 About, Projects, Blog — CTA: "Get In Touch" → /contact
 
 ## Static Assets
+
 - /assets/my_image.png — headshot PNG, bg removed, portrait ~3:4
-- /assets/logo.jpeg — nav logo
+- /assets/logo.png — nav logo

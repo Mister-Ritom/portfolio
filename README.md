@@ -2,7 +2,7 @@
 
 An immersive, 3D-driven developer portfolio built with **SvelteKit 5**, **Threlte (Three.js)**, and **GSAP**.
 
-![Portfolio Preview](static/logo.jpeg) <!-- Replace with a real screenshot if available -->
+![Portfolio Preview](static/screensht.jpeg)
 
 ## 🚀 Overview
 
@@ -37,12 +37,14 @@ This is the source code for my personal portfolio. It features a high-performanc
 ### Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/yourusername/portfolio.git
    cd portfolio
    ```
 
 2. Install dependencies:
+
    ```bash
    npm install
    ```
@@ -53,6 +55,7 @@ This is the source code for my personal portfolio. It features a high-performanc
 ### Development
 
 Start the development server:
+
 ```bash
 npm run dev
 ```
@@ -60,6 +63,7 @@ npm run dev
 ### Building
 
 To create a production version:
+
 ```bash
 npm run build
 ```
