@@ -1,3 +1,91 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Design Tokens ─────────────────────────────────────────── */
+:root {
+  --color-primary:   #1E1E1E;
+  --color-secondary: #6B6B6B;
+  --color-tertiary:  #F0F0F0;
+  --color-white:     #FFFFFF;
+  --color-bg:        #F4F4F2;
+  --font-display:    'Space Grotesk', sans-serif;
+  --font-body:       'Inter', sans-serif;
+}
+
+/* ── Base ──────────────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-primary);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; }
+
+/* ── Global font helpers ─────────────────────────────────── */
+.font-display { font-family: var(--font-display); }
+
+/* ── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #eee; }
+::-webkit-scrollbar-thumb { background: #bbb; border-radius: 3px; }
+
+/* ── Shared section styles (used across pages) ───────────── */
+.eyebrow {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--color-primary);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.watermark-bg {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(8rem, 18vw, 18rem);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(0,0,0,0.06);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* ── Card patterns ───────────────────────────────────────── */
+.card {
+  border-radius: 20px;
+  padding: 2rem;
+}
+.card-dark  { background: #1E1E1E; color: #fff; }
+.card-mid   { background: #6B6B6B; color: #fff; }
+.card-light { background: #E8E8E6; color: #1E1E1E; }
+.card-white { background: #fff; color: #1E1E1E; border: 1px solid rgba(0,0,0,0.07); }
+
+.card-label {
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.4;
+  margin-bottom: 0.75rem;
+  display: block;
+}

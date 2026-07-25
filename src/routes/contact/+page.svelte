@@ -1,221 +1,184 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { enhance } from '$app/forms';
-	import { Github, Linkedin, Mail, Send, ArrowLeft, User, AtSign, MessageSquare, CheckCircle, AlertCircle } from 'lucide-svelte';
-	import { gsap } from 'gsap';
+	import { Github, Linkedin, Mail, Instagram, Send } from 'lucide-svelte';
 
-	export let form;
+	export let form: { success?: boolean; error?: boolean; message?: string } | null = null;
 
-	let formData = {
-		name: '',
-		email: '',
-		message: ''
-	};
-
-	let formRef: HTMLElement;
-	let socialCards: HTMLElement[] = [];
+	let formData = { name: '', email: '', message: '' };
 	let isSubmitting = false;
 
-	onMount(() => {
-		const tl = gsap.timeline();
-		
-		tl.from('.header-section', {
-			y: 30,
-			opacity: 0,
-			duration: 0.8,
-			ease: 'power3.out'
-		});
-
-		tl.from(formRef, {
-			x: -30,
-			opacity: 0,
-			duration: 0.8,
-			ease: 'power3.out'
-		}, '-=0.4');
-
-		tl.from(socialCards, {
-			x: 30,
-			opacity: 0,
-			duration: 0.6,
-			stagger: 0.1,
-			ease: 'power2.out'
-		}, '-=0.6');
-	});
+	const socials = [
+		{
+			icon: Github,
+			label: 'GitHub',
+			sub: '@Mister-Ritom',
+			href: 'https://github.com/Mister-Ritom',
+			color: '#1E1E1E'
+		},
+		{
+			icon: Linkedin,
+			label: 'LinkedIn',
+			sub: 'ritom7',
+			href: 'https://linkedin.com/in/ritom7',
+			color: '#0A66C2'
+		},
+		{
+			icon: Mail,
+			label: 'Email',
+			sub: 'ritomghosh856@gmail.com',
+			href: 'mailto:ritomghosh856@gmail.com',
+			color: '#EA4335'
+		},
+		{
+			icon: Instagram,
+			label: 'Instagram',
+			sub: '@ritomg1',
+			href: 'https://instagram.com/ritomg1',
+			color: '#E1306C'
+		}
+	];
 </script>
 
-<div class="min-h-screen bg-[#050505] text-white flex flex-col items-center justify-center px-6 py-32 selection:bg-white/20">
-	<div class="fixed inset-0 pointer-events-none overflow-hidden">
-		<div class="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-500/5 blur-[120px] rounded-full"></div>
-		<div class="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-purple-500/5 blur-[120px] rounded-full"></div>
-	</div>
+<svelte:head>
+	<title>Contact — Ritom Ghosh</title>
+	<meta name="description" content="Get in touch with Ritom Ghosh — open to freelance, full-time, and collaboration opportunities." />
+</svelte:head>
 
-	<a href="/" class="fixed top-8 left-8 p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all group z-50">
-		<ArrowLeft class="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-	</a>
+<div class="min-h-screen pt-28 pb-24 px-6 bg-[#F4F4F2]">
+	<div class="max-w-6xl mx-auto">
 
-	<div class="max-w-5xl w-full relative z-10">
-		<div class="header-section mb-16">
-			<h1 class="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-b from-white to-gray-500 bg-clip-text text-transparent">Get in Touch</h1>
-			<p class="text-xl text-gray-400 font-light tracking-wide italic">"Let's create something amazing together."</p>
+		<!-- Header -->
+		<div class="mb-16 relative overflow-hidden">
+			<span class="watermark font-display font-bold absolute -left-4 top-1/2 -translate-y-1/2 select-none pointer-events-none text-[#1E1E1E]/[0.04] leading-none" style="font-size: clamp(6rem, 18vw, 16rem);">
+				Contact
+			</span>
+			<p class="eyebrow relative z-10">Let's talk</p>
+			<h1 class="font-display font-bold text-[#1E1E1E] relative z-10" style="font-size: clamp(3rem, 7vw, 6rem); letter-spacing: -0.04em; line-height: 1;">
+				Get In Touch
+			</h1>
+			<p class="mt-4 text-[#6B6B6B] text-base max-w-lg relative z-10">
+				Open to freelance projects, full-time positions, and interesting collaborations. I'll reply within 24 hours.
+			</p>
 		</div>
 
-		<div class="grid lg:grid-cols-2 gap-16 items-start">
-			<!-- Contact Form -->
-			<div bind:this={formRef} class="bg-white/[0.02] border border-white/10 rounded-3xl p-8 backdrop-blur-xl shadow-2xl relative overflow-hidden">
-				{#if form?.success}
-					<div class="absolute inset-0 bg-black/90 backdrop-blur-md flex flex-col items-center justify-center p-8 text-center z-20 animate-in fade-in zoom-in duration-500">
-						<div class="w-20 h-20 bg-green-500/20 text-green-400 rounded-full flex items-center justify-center mb-6">
-							<CheckCircle class="w-10 h-10" />
+		<!-- Two-column layout -->
+		<div class="grid lg:grid-cols-5 gap-8 items-start">
+
+			<!-- Form (3 cols) -->
+			<div class="lg:col-span-3">
+				<div class="form-card">
+					{#if form?.success}
+						<div class="success-state">
+							<div class="success-icon">✓</div>
+							<h3 class="font-display font-bold text-2xl text-[#1E1E1E] mb-2">Message sent!</h3>
+							<p class="text-[#6B6B6B] text-sm mb-6">Thank you for reaching out. I'll get back to you as soon as possible.</p>
+							<button
+								on:click={() => { form = null; formData = { name: '', email: '', message: '' }; }}
+								class="btn-secondary"
+							>
+								Send another
+							</button>
 						</div>
-						<h3 class="text-3xl font-bold mb-4">Message Sent!</h3>
-						<p class="text-gray-400 mb-8 max-w-sm">Thank you for reaching out. I'll get back to you as soon as possible.</p>
-						<button 
-							on:click={() => { form = null; formData = { name: '', email: '', message: '' } }}
-							class="px-8 py-3 bg-white text-black rounded-xl font-bold hover:bg-gray-200 transition-colors"
+					{:else}
+						<form
+							method="POST"
+							use:enhance={() => {
+								isSubmitting = true;
+								return async ({ update }) => {
+									isSubmitting = false;
+									await update();
+								};
+							}}
+							class="space-y-6"
 						>
-							Send Another
-						</button>
-					</div>
-				{/if}
+							{#if form?.error}
+								<div class="error-banner">
+									{form.message || 'Something went wrong. Please try again.'}
+								</div>
+							{/if}
 
-				<form 
-					method="POST" 
-					use:enhance={() => {
-						isSubmitting = true;
-						return async ({ update }) => {
-							isSubmitting = false;
-							await update();
-						};
-					}} 
-					class="space-y-8"
-				>
-					<div class="space-y-2">
-						{#if form?.error}
-							<div class="p-4 bg-red-500/10 border border-red-500/20 rounded-2xl flex items-center gap-3 text-red-400 mb-6">
-								<AlertCircle class="w-5 h-5" />
-								<p class="text-sm">{form.message || 'Something went wrong. Please try again.'}</p>
+							<div class="form-field">
+								<label for="name" class="field-label">Name</label>
+								<input
+									id="name"
+									name="name"
+									type="text"
+									bind:value={formData.name}
+									required
+									disabled={isSubmitting}
+									placeholder="Your name"
+									class="field-input"
+								/>
 							</div>
-						{/if}
-						
-						<label for="name" class="flex items-center gap-2 text-sm font-medium text-gray-400 ml-1">
-							<User class="w-4 h-4" /> Name
-						</label>
-						<input
-							type="text"
-							id="name"
-							name="name"
-							bind:value={formData.name}
-							required
-							disabled={isSubmitting}
-							class="w-full px-5 py-4 bg-white/[0.03] border border-white/10 rounded-2xl focus:border-white/30 focus:bg-white/[0.05] outline-none transition-[background-color,border-color] duration-300 placeholder:text-gray-600 disabled:opacity-50"
-							placeholder="Your name"
-						/>
-					</div>
 
-					<div class="space-y-2">
-						<label for="email" class="flex items-center gap-2 text-sm font-medium text-gray-400 ml-1">
-							<AtSign class="w-4 h-4" /> Email
-						</label>
-						<input
-							type="email"
-							id="email"
-							name="email"
-							bind:value={formData.email}
-							required
-							disabled={isSubmitting}
-							class="w-full px-5 py-4 bg-white/[0.03] border border-white/10 rounded-2xl focus:border-white/30 focus:bg-white/[0.05] outline-none transition-[background-color,border-color] duration-300 placeholder:text-gray-600 disabled:opacity-50"
-							placeholder="your@email.com"
-						/>
-					</div>
+							<div class="form-field">
+								<label for="email" class="field-label">Email</label>
+								<input
+									id="email"
+									name="email"
+									type="email"
+									bind:value={formData.email}
+									required
+									disabled={isSubmitting}
+									placeholder="your@email.com"
+									class="field-input"
+								/>
+							</div>
 
-					<div class="space-y-2">
-						<label for="message" class="flex items-center gap-2 text-sm font-medium text-gray-400 ml-1">
-							<MessageSquare class="w-4 h-4" /> Message
-						</label>
-						<textarea
-							id="message"
-							name="message"
-							bind:value={formData.message}
-							required
-							disabled={isSubmitting}
-							rows="5"
-							class="w-full px-5 py-4 bg-white/[0.03] border border-white/10 rounded-2xl focus:border-white/30 focus:bg-white/[0.05] outline-none transition-[background-color,border-color] duration-300 placeholder:text-gray-600 resize-none disabled:opacity-50"
-							placeholder="Tell me about your project..."
-						></textarea>
-					</div>
+							<div class="form-field">
+								<label for="message" class="field-label">Message</label>
+								<textarea
+									id="message"
+									name="message"
+									bind:value={formData.message}
+									required
+									disabled={isSubmitting}
+									rows="5"
+									placeholder="Tell me about your project or idea..."
+									class="field-input field-textarea"
+								></textarea>
+							</div>
 
-					<button
-						type="submit"
-						disabled={isSubmitting}
-						class="group w-full py-5 bg-white text-black rounded-2xl font-bold flex items-center justify-center gap-3 hover:bg-gray-200 transition-[background-color,transform] duration-300 active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed"
-					>
-						{#if isSubmitting}
-							<div class="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
-							Sending...
-						{:else}
-							<Send class="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-							Send Message
-						{/if}
-					</button>
-				</form>
+							<button
+								type="submit"
+								disabled={isSubmitting}
+								class="btn-submit"
+							>
+								{#if isSubmitting}
+									<span class="spinner"></span>
+									Sending...
+								{:else}
+									<Send size={16} strokeWidth={2} />
+									Send Message
+								{/if}
+							</button>
+						</form>
+					{/if}
+				</div>
 			</div>
 
-			<!-- Interaction Details & Socials -->
-			<div class="space-y-8">
-				<div class="space-y-6">
-					<h2 class="text-2xl font-semibold tracking-tight">Direct Connect</h2>
-					<div class="space-y-4">
-						<a
-							href="https://github.com/mister-ritom"
-							target="_blank"
-							rel="noopener noreferrer"
-							bind:this={socialCards[0]}
-							class="flex items-center gap-5 p-5 bg-white/[0.03] border border-white/10 rounded-2xl hover:bg-white/[0.08] hover:border-white/20 group backdrop-blur-md transition-[background-color,border-color] duration-300"
-						>
-							<div class="p-3 bg-white/5 rounded-xl group-hover:scale-110 transition-transform duration-300">
-								<Github class="w-6 h-6" strokeWidth={1.5} />
-							</div>
-							<div>
-								<p class="font-medium">GitHub</p>
-								<p class="text-sm text-gray-500">@mister-ritom</p>
-							</div>
-						</a>
+			<!-- Socials + info (2 cols) -->
+			<div class="lg:col-span-2 space-y-4">
+				{#each socials as s}
+					<a href={s.href} target={s.href.startsWith('http') ? '_blank' : '_self'} rel="noopener noreferrer" class="social-card group">
+						<div class="social-icon-wrap" style="--icon-color: {s.color}">
+							<svelte:component this={s.icon} size={18} strokeWidth={1.8} />
+						</div>
+						<div>
+							<p class="font-display font-semibold text-[#1E1E1E] text-sm">{s.label}</p>
+							<p class="text-[#6B6B6B] text-xs mt-0.5">{s.sub}</p>
+						</div>
+						<span class="social-arrow ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-[#6B6B6B] text-sm">→</span>
+					</a>
+				{/each}
 
-						<a
-							href="https://linkedin.com/in/ritom7"
-							target="_blank"
-							rel="noopener noreferrer"
-							bind:this={socialCards[1]}
-							class="flex items-center gap-5 p-5 bg-white/[0.03] border border-white/10 rounded-2xl hover:bg-white/[0.08] hover:border-white/20 group backdrop-blur-md transition-[background-color,border-color] duration-300"
-						>
-							<div class="p-3 bg-blue-500/10 text-blue-400 rounded-xl group-hover:scale-110 transition-transform duration-300">
-								<Linkedin class="w-6 h-6" strokeWidth={1.5} />
-							</div>
-							<div>
-								<p class="font-medium">LinkedIn</p>
-								<p class="text-sm text-gray-500">ritom7</p>
-							</div>
-						</a>
-
-						<a
-							href="mailto:ritomghosh856@gmail.com"
-							bind:this={socialCards[2]}
-							class="flex items-center gap-5 p-5 bg-white/[0.03] border border-white/10 rounded-2xl hover:bg-white/[0.08] hover:border-white/20 group backdrop-blur-md transition-[background-color,border-color] duration-300"
-						>
-							<div class="p-3 bg-red-500/10 text-red-400 rounded-xl group-hover:scale-110 transition-transform duration-300">
-								<Mail class="w-6 h-6" strokeWidth={1.5} />
-							</div>
-							<div>
-								<p class="font-medium">Email</p>
-								<p class="text-sm text-gray-500">ritomghosh856@gmail.com</p>
-							</div>
-						</a>
+				<!-- Availability callout -->
+				<div class="availability-card">
+					<div class="avail-dot"></div>
+					<div>
+						<p class="font-display font-semibold text-white text-sm">Available for work</p>
+						<p class="text-white/55 text-xs mt-0.5 leading-relaxed">Freelance &amp; full-time. Replies within 24h.</p>
 					</div>
-				</div>
-
-				<div class="p-8 bg-gradient-to-br from-blue-600/10 to-purple-600/10 border border-white/5 rounded-3xl backdrop-blur-sm">
-					<h3 class="text-lg font-medium mb-2">Availability</h3>
-					<p class="text-gray-400 text-sm leading-relaxed">Currently open to freelance opportunities and full-time positions. Expect a response within 24 hours.</p>
 				</div>
 			</div>
 		</div>
@@ -223,7 +186,174 @@
 </div>
 
 <style>
-	:global(body) {
-		background: #050505;
-	}
+.eyebrow {
+	font-size: 0.7rem;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	color: #6B6B6B;
+	font-weight: 600;
+	margin-bottom: 0.5rem;
+}
+
+/* Form card */
+.form-card {
+	background: #FFFFFF;
+	border-radius: 20px;
+	padding: 2.5rem;
+	border: 1px solid rgba(0,0,0,0.06);
+}
+
+.form-field { display: flex; flex-direction: column; gap: 0.5rem; }
+.field-label {
+	font-size: 0.75rem;
+	font-weight: 600;
+	color: #6B6B6B;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	font-family: 'Space Grotesk', sans-serif;
+}
+.field-input {
+	width: 100%;
+	padding: 0.875rem 1rem;
+	border-radius: 12px;
+	border: 1.5px solid rgba(0,0,0,0.1);
+	background: #F9F9F8;
+	font-size: 0.9rem;
+	color: #1E1E1E;
+	outline: none;
+	transition: border-color 0.2s, background 0.2s;
+	font-family: 'Inter', sans-serif;
+}
+.field-input:focus {
+	border-color: #1E1E1E;
+	background: #FFFFFF;
+}
+.field-input:disabled { opacity: 0.5; cursor: not-allowed; }
+.field-input::placeholder { color: #AFAFAF; }
+.field-textarea { resize: none; }
+
+.btn-submit {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	padding: 1rem;
+	border-radius: 12px;
+	background: #1E1E1E;
+	color: white;
+	font-family: 'Space Grotesk', sans-serif;
+	font-weight: 600;
+	font-size: 0.9rem;
+	border: none;
+	cursor: pointer;
+	transition: background 0.2s, transform 0.15s;
+}
+.btn-submit:hover:not(:disabled) { background: #333; }
+.btn-submit:active:not(:disabled) { transform: scale(0.98); }
+.btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.btn-secondary {
+	padding: 0.75rem 1.5rem;
+	border-radius: 10px;
+	background: #F0F0EE;
+	color: #1E1E1E;
+	font-family: 'Space Grotesk', sans-serif;
+	font-weight: 600;
+	font-size: 0.85rem;
+	border: none;
+	cursor: pointer;
+	transition: background 0.2s;
+}
+.btn-secondary:hover { background: #E0E0DE; }
+
+.error-banner {
+	padding: 0.875rem 1rem;
+	border-radius: 10px;
+	background: #FEF2F2;
+	border: 1px solid #FECACA;
+	color: #B91C1C;
+	font-size: 0.85rem;
+}
+
+.success-state {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding: 2rem 0;
+}
+.success-icon {
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	background: #F0FDF4;
+	color: #16A34A;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.5rem;
+	font-weight: 700;
+	margin-bottom: 1.25rem;
+}
+
+.spinner {
+	width: 16px;
+	height: 16px;
+	border: 2px solid rgba(255,255,255,0.3);
+	border-top-color: white;
+	border-radius: 50%;
+	animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Social cards */
+.social-card {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	padding: 1.1rem 1.25rem;
+	background: #FFFFFF;
+	border-radius: 14px;
+	border: 1px solid rgba(0,0,0,0.06);
+	transition: transform 0.2s, box-shadow 0.2s;
+}
+.social-card:hover {
+	transform: translateX(4px);
+	box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+.social-icon-wrap {
+	width: 36px;
+	height: 36px;
+	border-radius: 10px;
+	background: color-mix(in srgb, var(--icon-color) 12%, transparent);
+	color: var(--icon-color);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+
+/* Availability */
+.availability-card {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	padding: 1.1rem 1.25rem;
+	background: #1E1E1E;
+	border-radius: 14px;
+}
+.avail-dot {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: #4ADE80;
+	box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.2);
+	flex-shrink: 0;
+	animation: pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+	0%, 100% { box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.2); }
+	50% { box-shadow: 0 0 0 6px rgba(74, 222, 128, 0.08); }
+}
 </style>
