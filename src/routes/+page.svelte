@@ -52,7 +52,7 @@
 <!-- ══════════════════════════════════════════════════════════
      HERO SECTION
 ══════════════════════════════════════════════════════════ -->
-<section class="hero-section relative w-full min-h-screen pt-20 overflow-hidden bg-[#F0F0EE]">
+<section class="hero-section relative w-full pt-20 overflow-hidden bg-[#F0F0EE]">
 	<div class="hero-inner max-w-7xl mx-auto px-6 h-full flex flex-col md:flex-row">
 
 		<!-- Left column -->
@@ -80,7 +80,7 @@
 			</div>
 
 			<!-- Main headline -->
-			<div class="pl-6 lg:pl-16 mt-auto mb-4">
+			<div class="pl-6 lg:pl-16 mt-8 md:mt-auto mb-4">
 				<h1 class="hero-headline font-display font-bold leading-none tracking-tight text-[#1E1E1E]">
 					Hello
 				</h1>
@@ -100,7 +100,7 @@
 		</div>
 
 		<!-- Right column — photo -->
-		<div class="hero-photo-col relative md:w-1/2 flex items-end justify-center md:justify-end order-first md:order-last">
+		<div class="hero-photo-col relative md:w-1/2 flex items-end justify-center md:justify-end order-first md:order-last overflow-hidden">
 			<div class="photo-frame relative">
 				<img
 					src="/assets/my_image.png"
@@ -170,7 +170,7 @@
 						<p class="text-[#6B6B6B] text-sm">Brainware University · Expected 01/2030</p>
 					</div>
 					<div>
-						<p class="font-display font-semibold text-[#1E1E1E] text-base">High School Diploma</p>
+						<p class="font-display font-semibold text-[#1E1E1E] text-base">High School Certificate</p>
 						<p class="text-[#6B6B6B] text-sm">Maldanga R.M. Institute · 06/2026 · Top 10%</p>
 					</div>
 				</div>
@@ -319,6 +319,11 @@
 .hero-section { min-height: 100svh; }
 .hero-inner { min-height: calc(100svh - 5rem); }
 
+@media (max-width: 767px) {
+	.hero-section { min-height: unset; padding-bottom: 3rem; }
+	.hero-inner { min-height: unset; }
+}
+
 .stat-callout { display: flex; flex-direction: column; }
 .stat-number {
 	font-size: clamp(2rem, 4vw, 2.75rem);
@@ -348,11 +353,13 @@
 
 /* Photo column */
 .hero-photo-col {
-	min-height: 50vw;
+	height: 72vw;
+	max-height: 420px;
 }
 @media (min-width: 768px) {
 	.hero-photo-col {
-		min-height: auto;
+		height: auto;
+		max-height: none;
 	}
 }
 .photo-frame {
@@ -370,6 +377,14 @@
 	object-fit: contain;
 	object-position: bottom center;
 	filter: drop-shadow(0 20px 40px rgba(0,0,0,0.12));
+}
+@media (max-width: 767px) {
+	.hero-photo {
+		max-height: 100%;
+		width: auto;
+		max-width: 80%;
+		margin: 0 auto;
+	}
 }
 .photo-bg-card {
 	bottom: 0;
