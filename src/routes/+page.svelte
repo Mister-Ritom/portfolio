@@ -45,9 +45,6 @@
 	];
 </script>
 
-<svelte:head>
-	<title>Ritom Ghosh — Developer & Builder</title>
-</svelte:head>
 
 <!-- ══════════════════════════════════════════════════════════
      HERO SECTION

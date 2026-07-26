@@ -39,10 +39,6 @@
 	];
 </script>
 
-<svelte:head>
-	<title>Contact — Ritom Ghosh</title>
-	<meta name="description" content="Get in touch with Ritom Ghosh — open to freelance, full-time, and collaboration opportunities." />
-</svelte:head>
 
 <div class="min-h-screen pt-28 pb-24 px-6 bg-[#F4F4F2]">
 	<div class="max-w-6xl mx-auto">

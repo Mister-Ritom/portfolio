@@ -9,11 +9,41 @@
 	];
 
 	let menuOpen = false;
+
+	$: pathname = $page.url.pathname;
+	
+	$: title = pathname.startsWith('/projects') ? 'Projects — Ritom Ghosh' :
+	           pathname.startsWith('/blog') ? 'Blog — Ritom Ghosh' :
+	           pathname.startsWith('/contact') ? 'Contact — Ritom Ghosh' :
+	           'Ritom Ghosh — Developer & Builder';
+
+	$: description = pathname.startsWith('/projects') ? 'All 22+ projects by Ritom Ghosh — mobile apps, web platforms, AI tools, and creative tech.' :
+	                 pathname.startsWith('/blog') ? 'Writings by Ritom Ghosh on mobile development, web engineering, and creative software.' :
+	                 pathname.startsWith('/contact') ? 'Get in touch with Ritom Ghosh — open to freelance, full-time, and collaboration opportunities.' :
+	                 'Portfolio of Ritom Ghosh — full-stack developer building mobile apps, web platforms, and creative software since age 14.';
+	
+	$: siteUrl = $page.url.origin;
+	$: currentUrl = `${siteUrl}${pathname}`;
+	$: imageUrl = `${siteUrl}/assets/my_image.png`;
 </script>
 
 <svelte:head>
-	<title>Ritom Ghosh — Developer & Builder</title>
-	<meta name="description" content="Portfolio of Ritom Ghosh — full-stack developer building mobile apps, web platforms, and creative software since age 14." />
+	<title>{title}</title>
+	<meta name="description" content={description} />
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content={currentUrl} />
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+	<meta property="og:image" content={imageUrl} />
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image" />
+	<meta property="twitter:url" content={currentUrl} />
+	<meta property="twitter:title" content={title} />
+	<meta property="twitter:description" content={description} />
+	<meta property="twitter:image" content={imageUrl} />
 </svelte:head>
 
 <!-- ── Navigation ──────────────────────────────────────── -->

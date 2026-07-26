@@ -42,10 +42,6 @@
 	];
 </script>
 
-<svelte:head>
-	<title>Blog — Ritom Ghosh</title>
-	<meta name="description" content="Writings by Ritom Ghosh on mobile development, web engineering, and creative software." />
-</svelte:head>
 
 <div class="min-h-screen pt-28 pb-24 px-6 bg-[#F4F4F2]">
 	<!-- Header -->

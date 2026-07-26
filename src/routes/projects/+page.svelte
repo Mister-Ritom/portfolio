@@ -214,10 +214,6 @@
 	$: filtered = activeCategory === 'All' ? projects : projects.filter(p => p.category === activeCategory);
 </script>
 
-<svelte:head>
-	<title>Projects — Ritom Ghosh</title>
-	<meta name="description" content="All 22+ projects by Ritom Ghosh — mobile apps, web platforms, AI tools, and creative tech." />
-</svelte:head>
 
 <div class="min-h-screen pt-28 pb-24 px-6 bg-[#F4F4F2]">
 	<!-- Header -->
