@@ -6,7 +6,7 @@
 			description: 'Masonry grid layout app with smooth animations and strong UI/UX design. Built with TypeScript and React.',
 			tech: ['TypeScript', 'React', 'Masonry'],
 			github: 'https://github.com/Mister-Ritom/indie',
-			live: 'https://indie-green.vercel.app'
+			live: 'https://indieapp.vercel.app'
 		},
 		{
 			name: 'Parla',

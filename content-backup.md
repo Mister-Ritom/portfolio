@@ -35,7 +35,7 @@ Innovative software developer with several years of hands-on experience designin
 
 ## Projects (22 total, from GitHub API)
 
-1. Indie — TS/React — Pinterest-clone, masonry grid — https://indie-green.vercel.app | https://github.com/Mister-Ritom/indie
+1. Indie — TS/React — Pinterest-clone, masonry grid — https://indieapp.vercel.app | https://github.com/Mister-Ritom/indie
 2. zdotcom — TypeScript — Social platform — https://zdotcom.vercel.app | https://github.com/Mister-Ritom/zdotcom
 3. sorto — Dart — Sort visualizer — https://sorto.vercel.app | https://github.com/Mister-Ritom/sorto
 4. lumina — Svelte — Web app — https://lumina-gules-seven.vercel.app | https://github.com/Mister-Ritom/lumina

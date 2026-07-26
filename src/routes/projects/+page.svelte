@@ -9,7 +9,7 @@
 			description: 'Pinterest-clone app showcasing a masonry grid layout, smooth animations, and strong UI/UX design capabilities.',
 			tech: ['TypeScript', 'React', 'Masonry Grid'],
 			github: 'https://github.com/Mister-Ritom/indie',
-			live: 'https://indie-green.vercel.app',
+			live: 'https://indieapp.vercel.app',
 			category: 'Web'
 		},
 		{
